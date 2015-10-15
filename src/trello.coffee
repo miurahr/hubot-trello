@@ -38,12 +38,11 @@ ensureConfig = (out) ->
 ##############################
 
 createCard = (msg, list_name, cardName) ->
-  msg.reply "Sure thing boss. I'll create that card for you."
   ensureConfig msg.send
   id = lists[list_name.toLowerCase()].id
   trello.post "/1/cards", {name: cardName, idList: id}, (err, data) ->
-    msg.reply "There was an error creating the card" if err
-    msg.reply "OK, I created that card for you. You can see it here: #{data.url}" unless err
+    msg.reply "Sorry boss, there was an error creating the card" if err
+    msg.reply "Sure thing boss. I created that card for you: #{data.url}" unless err
 
 showCards = (msg, list_name) ->
   msg.reply "Looking up the cards for #{list_name}, one sec."
