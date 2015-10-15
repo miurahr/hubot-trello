@@ -12,8 +12,8 @@
 # Commands:
 #   hubot trello new "<list>" <name> - Create a new Trello card in the list
 #   hubot trello list "<list>" - Show cards on list
+#   hubot trello list lists - List all the lists on the board
 #   hubot trello move <shortLink> "<list>" - Move a card to a different list
-#
 #
 # Author:
 #   jared barboza <jared.m.barboza@gmail.com>
@@ -101,12 +101,4 @@ module.exports = (robot) ->
     msg.reply "Here are all the lists on your board."
     Object.keys(lists).forEach (key) ->
       msg.send " * " + key
-
-  robot.respond /trello help/i, (msg) ->
-    msg.reply "Here are all the commands for me."
-    msg.send " *  trello new \"<ListName>\" <TaskName>"
-    msg.send " *  trello list \"<ListName>\""
-    msg.send " *  shows * [<card.shortLink>] <card.name> - <card.shortUrl>"
-    msg.send " *  trello move <card.shortlink> \"<ListName>\""
-    msg.send " *  trello list lists"
 
