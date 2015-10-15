@@ -64,6 +64,6 @@ Hubt> * done
 And you can use a little help command.
 
 ```
-user1> trello help
+user1> help trello
 ```
 
